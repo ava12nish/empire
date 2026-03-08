@@ -94,7 +94,7 @@ export default function App() {
       {/* --- PROFESSIONAL HEADER --- */}
       <header className="w-full z-20 p-4 flex justify-between items-center sm:px-8 border-b-2 border-black/10 bg-[#FFFDF5]/80 backdrop-blur-md">
         <div className="font-sans font-black tracking-tighter text-2xl flex items-center gap-2">
-          <img src="/empire_app_logo.png" alt="Empire Logo" className="w-8 h-8 drop-shadow-sm" />
+          <img src="/empire_logo.png" alt="Empire Logo" className="w-8 h-8 drop-shadow-sm" />
           EMPIRE
         </div>
         <div className="flex items-center gap-2 text-sm font-sans font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full border-2 border-emerald-700">
