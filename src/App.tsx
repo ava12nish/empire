@@ -323,8 +323,11 @@ export default function App() {
       <footer className="w-full z-20 p-4 sm:p-6 border-t-2 border-black/10 bg-[#FFFDF5]/80 backdrop-blur-md text-center text-sm font-sans flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="text-gray-600 font-bold">
           &copy; {new Date().getFullYear()} Empire Game. All rights reserved.
+          <span className="hidden sm:inline"> | </span>
+          <br className="sm:hidden" />
+          Developed by <a href="https://avanishsamala.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#FF6321] hover:underline transition-colors">Avanish Samala</a>
         </div>
-        <div className="flex gap-4 font-bold">
+        <div className="flex gap-4 font-bold flex-wrap justify-center">
           <button onClick={() => setShowTerms(true)} className="hover:text-[#FF6321] transition-colors hover:underline">Terms of Service</button>
           <button onClick={() => setShowPrivacy(true)} className="hover:text-[#FF6321] transition-colors hover:underline">Privacy Policy</button>
         </div>
