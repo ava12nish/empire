@@ -15,35 +15,41 @@
 
 @layer utilities {
   .brutal-border {
-    @apply border-4 border-black;
+    @apply border-4 border-black dark:border-white;
   }
 
   .brutal-shadow {
-    @apply shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
+    @apply shadow-[4px_4px_0px_0px_#000] dark:shadow-[4px_4px_0px_0px_#fff];
   }
 
   .brutal-shadow-sm {
-    @apply shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
+    @apply shadow-[2px_2px_0px_0px_#000] dark:shadow-[2px_2px_0px_0px_#fff];
   }
 
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-md border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border-[3px] border-black dark:border-white shadow-[4px_4px_0px_0px_#000] dark:shadow-[4px_4px_0px_0px_#fff];
   }
 
   .custom-scrollbar::-webkit-scrollbar {
     width: 10px;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-track {
-    @apply bg-gray-200 border-l-[3px] border-black;
+    @apply bg-gray-200 dark:bg-zinc-800 border-l-[3px] border-black dark:border-white;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-black border-[2px] border-gray-200;
+    @apply bg-black dark:bg-white border-[2px] border-gray-200 dark:border-zinc-800;
   }
 }
 
 /* Force sans font for headlines */
-h1, h2, h3, h4, h5, h6, .heading-font {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading-font {
   @apply font-sans font-black tracking-tight;
 }
