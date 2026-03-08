@@ -21,6 +21,7 @@ export default function App() {
   // Legal Modals
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   // Dark Mode
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -122,6 +123,13 @@ export default function App() {
             <ShieldCheck className="w-4 h-4" />
             <span className="hidden sm:inline">Privacy-First</span>
           </div>
+          <button
+            onClick={() => setShowInfo(true)}
+            className={`p-2 rounded-full border-2 transition-colors duration-300 ${isDarkMode ? 'border-white/20 text-blue-300 hover:bg-white/10' : 'border-black/20 text-blue-900 hover:bg-black/5'}`}
+            aria-label="App Info"
+          >
+            <Info className="w-5 h-5" />
+          </button>
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
             className={`p-2 rounded-full border-2 transition-colors duration-300 ${isDarkMode ? 'border-white/20 text-yellow-300 hover:bg-white/10' : 'border-black/20 text-indigo-900 hover:bg-black/5'}`}
@@ -351,7 +359,7 @@ export default function App() {
 
       {/* --- LEGAL MODALS --- */}
       <AnimatePresence>
-        {(showTerms || showPrivacy) && (
+        {(showTerms || showPrivacy || showInfo) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -367,15 +375,43 @@ export default function App() {
             >
               <div className={`p-4 flex justify-between items-center border-b-[3px] ${isDarkMode ? 'bg-white text-black border-white' : 'bg-black text-white border-black'}`}>
                 <h2 className="font-sans font-black text-xl tracking-wider uppercase">
-                  {showTerms ? "Terms of Service" : "Privacy Policy"}
+                  {showTerms ? "Terms of Service" : showPrivacy ? "Privacy Policy" : "About Empire"}
                 </h2>
-                <button onClick={() => { setShowTerms(false); setShowPrivacy(false); }} className="hover:bg-white/20 p-1 rounded transition-colors">
+                <button onClick={() => { setShowTerms(false); setShowPrivacy(false); setShowInfo(false); }} className="hover:bg-white/20 p-1 rounded transition-colors">
                   <X className="w-6 h-6" />
                 </button>
               </div>
 
               <div className={`p-6 overflow-y-auto custom-scrollbar font-serif leading-relaxed text-sm space-y-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-800'}`}>
-                {showPrivacy ? (
+                {showInfo ? (
+                  <div className="flex flex-col items-center text-center gap-6 py-4">
+                    <img src="/empire_logo.png" alt="Empire Logo" className="w-20 h-20 drop-shadow-md" />
+                    <div>
+                      <h3 className={`font-sans font-black text-2xl ${isDarkMode ? 'text-white' : 'text-black'}`}>EMPIRE</h3>
+                      <p className="font-bold text-gray-500 mt-1">v1.0.0</p>
+                    </div>
+
+                    <div className="w-full border-t border-gray-300 dark:border-zinc-700 my-2"></div>
+
+                    <div className="flex flex-col gap-3 font-bold w-full">
+                      <button onClick={() => { setShowInfo(false); setShowTerms(true); }} className={`p-3 brutal-border flex justify-between items-center transition-colors ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+                        <span>Terms of Service</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                      <button onClick={() => { setShowInfo(false); setShowPrivacy(true); }} className={`p-3 brutal-border flex justify-between items-center transition-colors ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+                        <span>Privacy Policy</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    <div className="w-full border-t border-gray-300 dark:border-zinc-700 my-2"></div>
+
+                    <div className="text-xs font-bold text-gray-500">
+                      &copy; {new Date().getFullYear()} Empire Game. All rights reserved.<br />
+                      Developed by <a href="https://avanishsamala.com" target="_blank" rel="noopener noreferrer" className={`hover:text-[#FF6321] hover:underline transition-colors ${isDarkMode ? 'text-gray-200' : 'text-black'}`}>Avanish Samala</a>
+                    </div>
+                  </div>
+                ) : showPrivacy ? (
                   <>
                     <h3 className={`font-sans font-bold text-lg ${isDarkMode ? 'text-white' : 'text-black'}`}>1. Privacy-First Gameplay</h3>
                     <p>The Empire game operates entirely on your local device. We do not transmit, collect, or store any of the secret words, category names, or player identities you enter.</p>
@@ -402,10 +438,10 @@ export default function App() {
 
               <div className={`p-4 border-t-4 flex justify-end ${isDarkMode ? 'border-white bg-zinc-800' : 'border-black bg-gray-100'}`}>
                 <button
-                  onClick={() => { setShowTerms(false); setShowPrivacy(false); }}
+                  onClick={() => { setShowTerms(false); setShowPrivacy(false); setShowInfo(false); }}
                   className={`brutal-border bg-[#FF6321] text-white font-sans font-black px-6 py-2 transition-colors ${isDarkMode ? 'hover:bg-white hover:text-black border-white' : 'hover:bg-black border-black'}`}
                 >
-                  I UNDERSTAND
+                  {showInfo ? 'CLOSE' : 'I UNDERSTAND'}
                 </button>
               </div>
             </motion.div>
