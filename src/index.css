@@ -7,6 +7,8 @@
   --font-serif: 'Georgia', 'Merriweather', ui-serif, serif;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   body {
     @apply bg-[#f4f4f4] text-black font-serif antialiased;
