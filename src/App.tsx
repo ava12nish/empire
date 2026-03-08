@@ -249,7 +249,7 @@ export default function App() {
               exit="exit"
               className="flex flex-col gap-6 glass-panel p-6 sm:p-8"
             >
-              <div className={`flex justify-between items-center px-4 py-2 brutal-border -mx-8 -mt-8 mb-2 rounded-t-[14px] transition-colors duration-300 ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
+              <div className={`flex justify-between items-center px-4 py-2 brutal-border -mx-8 -mt-8 mb-2 transition-colors duration-300 ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'}`}>
                 <span className="font-sans font-bold">Player {currentPlayer}</span>
                 <span className={`flex items-center gap-1 text-sm bg-[#FF6321] px-2 py-0.5 border-2 font-bold text-white ${isDarkMode ? 'border-black' : 'border-white'}`}>
                   <Tag className="w-3 h-3" /> {category}
