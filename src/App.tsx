@@ -112,7 +112,7 @@ export default function App() {
       </div>
 
       {/* --- PROFESSIONAL HEADER --- */}
-      <header className={`w-full z-20 p-4 flex justify-between items-center sm:px-8 border-b-2 border-black/10 transition-colors duration-300 ${isDarkMode ? 'bg-[#121212]/80 border-white/10' : 'bg-[#FFFDF5]/80'} backdrop-blur-md`}>
+      <header className={`w-full z-20 p-4 pt-[max(1rem,env(safe-area-inset-top))] flex justify-between items-center sm:px-8 border-b-2 border-black/10 transition-colors duration-300 ${isDarkMode ? 'bg-[#121212]/80 border-white/10' : 'bg-[#FFFDF5]/80'} backdrop-blur-md`}>
         <div className="font-sans font-black tracking-tighter text-2xl flex items-center gap-2">
           <img src="/empire_logo.png" alt="Empire Logo" className="w-8 h-8 drop-shadow-sm" />
           EMPIRE
@@ -132,7 +132,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="w-full max-w-md mx-auto z-10 p-6 sm:p-8 rounded-2xl relative flex-1 flex flex-col justify-center">
+      <main className="w-full max-w-md mx-auto z-10 p-6 sm:p-8 rounded-2xl relative flex-1 flex flex-col justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
         <AnimatePresence mode="wait">
           {/* ----- SETUP PHASE ----- */}
           {phase === 'setup' && (
@@ -348,19 +348,6 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* --- PROFESSIONAL FOOTER --- */}
-      <footer className={`w-full z-20 p-4 sm:p-6 border-t-2 transition-colors duration-300 ${isDarkMode ? 'bg-[#121212]/80 border-white/10 text-gray-400' : 'bg-[#FFFDF5]/80 border-black/10 text-gray-600'} backdrop-blur-md text-center text-sm font-sans flex flex-col sm:flex-row justify-between items-center gap-4`}>
-        <div className="font-bold">
-          &copy; {new Date().getFullYear()} Empire Game. All rights reserved.
-          <span className="hidden sm:inline"> | </span>
-          <br className="sm:hidden" />
-          Developed by <a href="https://avanishsamala.com" target="_blank" rel="noopener noreferrer" className={`hover:text-[#FF6321] hover:underline transition-colors ${isDarkMode ? 'text-gray-200' : 'text-black'}`}>Avanish Samala</a>
-        </div>
-        <div className="flex gap-4 font-bold flex-wrap justify-center">
-          <button onClick={() => setShowTerms(true)} className="hover:text-[#FF6321] transition-colors hover:underline">Terms of Service</button>
-          <button onClick={() => setShowPrivacy(true)} className="hover:text-[#FF6321] transition-colors hover:underline">Privacy Policy</button>
-        </div>
-      </footer>
 
       {/* --- LEGAL MODALS --- */}
       <AnimatePresence>
